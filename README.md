@@ -150,8 +150,6 @@ Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE.md para más d
 - **Jenice Medinilla Padrón**
 ```
 
-Ya puedes copiar todo el bloque y pegarlo directamente en tu `README.md`. ¡El proyecto se ve muy bien! 🚀
-
 
 
 
