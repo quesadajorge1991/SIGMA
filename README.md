@@ -147,7 +147,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE.md para más d
 ## ✒️ Autores
 
 - **Jorge Adrián Quesada Perdomo**
-- **Jenice Medinilla Padrón**
+- **Jénice Medinilla Padrón**
 
 
 
