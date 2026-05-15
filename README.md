@@ -52,13 +52,73 @@ Content-Type: application/json
   "fechaCreacion": "2026-05-15T10:30:00"
 }
 ```http
-
-
-
-
-
-
-
 POST /api/v1/muestras/temperatura
 POST /api/v1/muestras/precipitacion
 POST /api/v1/muestras/presion
+
+### 🗄️ Configuración de Base de Datos
+Requisitos previos
+PostgreSQL 12+ instalado
+Extensión PostGIS habilitada
+
+Activar PostGIS en PostgreSQL
+CREATE EXTENSION postgis;
+
+### Configuración de conexión
+spring.datasource.url=jdbc:postgresql://localhost:5432/tu_bd
+spring.datasource.username=tu_usuario
+spring.datasource.password=tu_contraseña
+spring.jpa.database-platform=org.hibernate.spatial.dialect.postgis.PostgisPG10Dialect
+
+### 🚦 Validaciones Implementadas
+Latitud: Entre -90° y 90°
+
+Longitud: Entre -180° y 180°
+
+Valor meteorológico: Campo obligatorio (permite valores negativos para temperatura)
+
+### 🧪 Pruebas con cURL
+# Registrar temperatura
+curl -X POST http://localhost:8080/api/v1/muestras/temperatura \
+  -H "Content-Type: application/json" \
+  -d '{"latitud": 40.4168, "longitud": -3.7038, "valor": 23.5}'
+
+# Registrar precipitación
+curl -X POST http://localhost:8080/api/v1/muestras/precipitacion \
+  -H "Content-Type: application/json" \
+  -d '{"latitud": 41.3851, "longitud": 2.1734, "valor": 12.3}'
+
+### 📁 Estructura del Proyecto
+src/main/java/com/tuempresa/muestras/
+├── controller/
+│   └── MuestraController.java
+├── config/
+     └── GeoConfig.java
+├── service/
+│   └── MuestraService.java
+├── repository/
+│   └── MuestraRepository.java
+├── model/
+│   └── Muestra.java
+└── dto/
+    ├── MuestraRequestDTO.java
+    └── MuestraResponseDTO.java
+
+### 🔄 Mejoras Futuras
+-Endpoints GET para consultar muestras por rango de fechas
+-Consultas espaciales (muestras cercanas a un punto)
+-Estadísticas agregadas por región
+-Autenticación y autorización (Spring Security)
+-Documentación interactiva con Swagger/OpenAPI
+-Tests unitarios y de integración
+
+### 📄 Licencia
+Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE.md para más detalles.
+
+✒️ Autor
+Jorge Adrián Quesada Perdomo
+Jenice Medinilla Padrón
+
+
+
+
