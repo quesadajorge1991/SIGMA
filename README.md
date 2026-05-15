@@ -24,7 +24,7 @@ API REST para el registro y gestión de datos meteorológicos con soporte geoesp
 
 ### Registrar muestras específicas
 
-```http
+
 POST /api/v1/muestras/temperatura
 POST /api/v1/muestras/precipitacion
 POST /api/v1/muestras/presion
@@ -51,7 +51,7 @@ Content-Type: application/json
   "variable": "TEMPERATURA",
   "fechaCreacion": "2026-05-15T10:30:00"
 }
-
+```http
 
 
 
